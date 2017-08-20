@@ -1,0 +1,86 @@
+Xcursor.theme:    Vanilla-DMZ-AA
+! urxvt color scheme:
+URxvt.keysym.C-BackSpace: \033\177
+
+URxvt*.foreground:   #e6e6e6
+URxvt*.background:   #263748
+URxvt*.cursorColor:  #e6e6e6
+
+! black
+URxvt*.color0:       #eeeeec
+URxvt*.color8:       #969896
+
+! red
+URxvt*.color1:       #cc6666
+URxvt*.color9:       #cc6666
+
+! green
+URxvt*.color2:       #b5bd68
+URxvt*.color10:      #b5bd68
+
+! yellow
+URxvt*.color3:       #f0c674
+URxvt*.color11:      #f0c674
+
+! blue
+URxvt*.color4:       #81a2be
+URxvt*.color12:      #81a2be
+
+! magenta
+URxvt*.color5:       #b294bb
+URxvt*.color13:      #b294bb
+
+! cyan
+URxvt*.color6:       #8abeb7
+URxvt*.color14:      #8abeb7
+
+! white
+URxvt*.color7:       #c5c8c6
+URxvt*.color15:      #ffffff
+
+!urxvt fonts:
+
+URxvt*font: xft:Hack:pixelsize=12, \
+  xft:Kochi Gothic:pixelsize=12
+URxvt*boldFont: xft:Hack:bold:pixelsize=12, \
+  xft:Kochi Gothic:pixelsize=12
+URxvt.letterSpace: -1
+
+! urxvt icon:
+Urxvt.iconFile: /home/tsondere/.icons/Super\ Flat\ Remix/apps/scalable/utilities-terminal.svg
+
+! urxvt tabs settings:
+
+URxvt.tabbed.tabbar-fg: 0
+URxvt.tabbed.tabbar-bg: -1
+URxvt.tabbed.tab-fg: 0
+URxvt.tabbed.tab-bg: 1
+URxvt.tabbed.autohide:  yes
+URxvt.tabbed.new-button:  no
+URxvt.tabbed.title: no
+URxvt*urgentOnBell: true
+
+
+! urxvt scrollbar
+
+URxvt*saveLines: 12000
+URxvt*scrollstyle:plain
+URxvt*scrollBar: false
+URxvt*cursorBlink: true
+
+! urxvt extensions
+URxvt.perl-ext-common: default,matcher,tabbedex,selection-to-clipboard
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+# urxvt Reassign keybindings
+URxvt.keysym.Control-Up:     \033[1;5A
+URxvt.keysym.Control-Down:   \033[1;5B
+URxvt.keysym.Control-Left:   \033[1;5D
+URxvt.keysym.Control-Right:  \033[1;5C
+
+! urxvt title
+urxvt*title: Terminal
+
+! Disable iso14755
+URxvt.iso14755 : false
