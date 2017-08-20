@@ -1,6 +1,0 @@
-# Player options
-player=mpv --profile 60FPS
-player-no-close
-
-# Authenticate with Twitch
-[CODE HERE]
