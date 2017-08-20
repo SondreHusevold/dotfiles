@@ -1,0 +1,26 @@
+export EDITOR=vim       # Terminal Editor is vim
+export VISUAL=vim       # Crontab & Co
+
+export PATH=$PATH:~/.cargo/bin/
+export RUST_SRC_PATH=/usr/src/rust/src
+fpath=(~/.bin/wd $fpath)
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+#
+#   # Customize to your needs...
+#
+export NVM_DIR="/home/tsondre/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+alias cpy="xclip -selection c"
+alias dirs="dirs -v"
+
+wd() {
+   . /home/tsondere/.bin/wd/wd.sh
+}
+
+export NVM_DIR=~/.nvm
+alias vim="nvim"
+alias brutaldoom="gzdoom -file doom.wad ~/.config/gzdoom/brutalv20b.pk3 ~/.config/gzdoom/doommetalvol4.wad ~/.config/gzdoom/extratextures.wad"
