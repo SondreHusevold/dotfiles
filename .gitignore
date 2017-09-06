@@ -1,0 +1,5 @@
+home/.config/mpv/*/*.lua
+home/.config/mpv/*/*.hook
+*.log
+
+
