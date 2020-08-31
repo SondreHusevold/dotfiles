@@ -115,6 +115,13 @@
  *
  */
 
+/* One shots */
+#define ONESHOT_TAP_TOGGLE 5
+#define ONESHOT_TIMEOUT 1500  /* Time (in ms) before the one shot key is released */
+
+/* Toggle tap layer */
+#define TAPPING_TOGGLE 2
+
 /* key combination for magic key command */
 #define IS_COMMAND() ( \
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
@@ -150,7 +157,7 @@
 //#define MAGIC_KEY_LAYER7         7
 //#define MAGIC_KEY_LAYER8         8
 //#define MAGIC_KEY_LAYER9         9
-#define MAGIC_KEY_BOOTLOADER     R
+//#define MAGIC_KEY_BOOTLOADER     R
 //#define MAGIC_KEY_LOCK           CAPS
 //#define MAGIC_KEY_EEPROM         E
 //#define MAGIC_KEY_NKRO           N
