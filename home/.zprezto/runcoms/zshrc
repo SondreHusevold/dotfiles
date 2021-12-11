@@ -11,23 +11,3 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-export EDITOR=vim       # Terminal Editor is vim
-export VISUAL=vim       # Crontab & Co
-export PATH=$PATH:~/.cargo/bin/				# Rust
-export RUST_SRC_PATH=/usr/src/rust/src 		# Rust
-export NVM_DIR=~/.nvm
-
-alias vim="nvim"							# Neovim default
-alias cpy="xclip -selection c"				# copy pipe.
-alias dirs="dirs -v"
-alias brutaldoom="gzdoom -file doom.wad ~/.config/gzdoom/brutalv20b.pk3 ~/.config/gzdoom/doommetalvol4.wad ~/.config/gzdoom/extratextures.wad"
-
-fpath=(~/.bin/wd $fpath)
-# WD
-wd() {
-   . /home/tsondere/.bin/wd/wd.sh
-}
-
-
-
-
