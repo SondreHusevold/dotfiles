@@ -9,3 +9,10 @@
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+export SDL_VIDEODRIVER=wayland
+export QT_QPA_PLATFORM=wayland
+export MOZ_ENABLE_WAYLAND=1
+export GDK_BACKEND=wayland
+export GTK_THEME=Arc
+export XDG_SCREENSHOTS_DIR=~/Pictures/Screenshots
