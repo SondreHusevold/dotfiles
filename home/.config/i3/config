@@ -5,8 +5,8 @@
 set $mod Mod4
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
-new_float normal
+default_border pixel 1
+default_floating_border normal
 
 # Hide borders
 hide_edge_borders none
@@ -24,7 +24,7 @@ font xft:Akzidenz-Grotesk\ Pro 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # kill focused windo
 bindsym $mod+Shift+q kill
@@ -45,8 +45,10 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -3000 && 
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Start Applications
-bindsym $mod+F2 exec firefox
-bindsym $mod+F3 exec pcmanfm
+bindsym $mod+Shift+w exec vpn librewolf
+bindsym $mod+Shift+f exec firefox
+bindsym $mod+Ctrl+Shift+w exec vpn chromium
+bindsym $mod+Shift+e exec pcmanfm
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -83,7 +85,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # Workspace
-workspace_auto_back_and_forth yesS
+workspace_auto_back_and_forth yes
 bindsym $mod+less workspace back_and_forth
 bindsym $mod+Shift+less move container to workspace back_and_forth; workspace back_and_forth
 
@@ -138,8 +140,10 @@ set $ws7 7
 set $ws8 8
 
 # Default Workspaces
-workspace $ws3 output DVI-D-0
-workspace $ws1 output DVI-I-1
+workspace $ws3 output DP-2
+workspace $ws4 output DP-3
+workspace $ws1 output DP-1
+#workspace $ws4 output DP-3
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -173,6 +177,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 assign [class="Steam"] $ws3
+assign [class="Chromium"] $ws3
+assign [title="MX Master 3"] $ws1
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -210,18 +216,18 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Ctrl+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id blurlock, mode "default"
+    bindsym l exec --no-startup-id lockoff, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id blurlock && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id blurlock && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id lockoff && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id lockoff && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  l0
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -231,11 +237,6 @@ mode "$mode_system" {
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 5 px or 5 ppt
         bindsym k resize grow height 5 px or 5 ppt
         bindsym l resize shrink height 5 px or 5 ppt
@@ -257,10 +258,16 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+exec --no-startup-id xrandr --output DP-1 --primary --mode 3440x1440 --rate 180 --set "Broadcast RGB" "Full" --pos 193x1080 --rotate normal --output HDMI-1 --off --output DP-2 --mode 1920x1080 --set "Broadcast RGB" "Full" --pos 0x0 --rotate normal --output DP-3 --mode 1920x1080 --set "Broadcast RGB" "Full" --pos 1920x0 --rotate normal --output HDMI-3 --off --output HDMI-4 --off
+exec --no-startup-id nitrogen --restore; sleep 1; DISPLAY=":0" picom -b; DISPLAY=":1" picom -b; DISPLAY=":2" picom -b;
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-applet
-exec --no-startup-id xautolock -time 30 -locker blurlock
-exec --no-startup-id i3-msg 'workspace 3; exec steam'
+exec --no-startup-id xautolock -time 30 -locker lockoff
+exec --no-startup-id i3-msg 'workspace 3; exec LD_PRELOAD="/full/path/to/sdl_block_screensaver_inhibit.so" SDL_VIDEO_ALLOW_SCREENSAVER=1 steam'
+exec --no-startup-id udiskie
+# exec --no-startup-id dispwin -v -d1 ~/.config/color/icc/devices/display/X34\ GS\ \#1\ 2022-07-18\ 19-03\ 2.2\ F-S\ XYZLUT+MTX.icc
+# exec --no-startup-id dispwin -v -d2 ~/.config/color/icc/devices/display/P2419H\ \#2\ 2022-07-18\ 19-39\ 2.2\ F-S\ XYZLUT+MTX.icc
+# exec --no-startup-id dispwin -v -d3 ~/.config/color/icc/devices/display/P2719H\ \#3\ 2022-07-18\ 18-09\ 2.2\ F-S\ XYZLUT+MTX.icc
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -277,24 +284,24 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # to:
 # background $term_background
 # Same logic applied to everything else.
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
+#set_from_resource $term_background background
+#set_from_resource $term_foreground foreground
+#set_from_resource $term_color0     color0
+#set_from_resource $term_color1     color1
+#set_from_resource $term_color2     color2
+#set_from_resource $term_color3     color3
+#set_from_resource $term_color4     color4
+#set_from_resource $term_color5     color5
+#set_from_resource $term_color6     color6
+#set_from_resource $term_color7     color7
+#set_from_resource $term_color8     color8
+#set_from_resource $term_color9     color9
+#set_from_resource $term_color10    color10
+#set_from_resource $term_color11    color11
+#set_from_resource $term_color12    color12
+#set_from_resource $term_color13    color13
+#set_from_resource $term_color14    color14
+#set_from_resource $term_color15    color15
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border

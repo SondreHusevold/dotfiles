@@ -1,3 +1,4 @@
+Xcursor.size: 16
 Xcursor.theme:    Vanilla-DMZ-AA
 ! urxvt color scheme:
 URxvt.keysym.C-BackSpace: \033\177
@@ -39,15 +40,14 @@ URxvt*.color7:       #c5c8c6
 URxvt*.color15:      #ffffff
 
 !urxvt fonts:
-
-URxvt*font: xft:Hack:pixelsize=12, \
+URxvt*font: xft:HackNerdFont:pixelsize=12, \
   xft:Kochi Gothic:pixelsize=12
-URxvt*boldFont: xft:Hack:bold:pixelsize=12, \
+URxvt*boldFont: xft:HackNerdFont:bold:pixelsize=12, \
   xft:Kochi Gothic:pixelsize=12
 URxvt.letterSpace: -1
 
 ! urxvt icon:
-Urxvt.iconFile: /home/tsondere/.icons/Super\ Flat\ Remix/apps/scalable/utilities-terminal.svg
+Urxvt.iconFile: /home/alpha/.icons/Super\ Flat\ Remix/apps/scalable/utilities-terminal.svg
 
 ! urxvt tabs settings:
 
