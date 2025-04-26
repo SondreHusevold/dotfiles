@@ -1,0 +1,44 @@
+[
+    {
+        "layer": "top",	
+        "position": "bottom",
+        "output": "DP-1",
+        "height": 25,
+
+        "modules-left": ["sway/workspaces", "sway/mode"],
+        "modules-center": [],
+        "modules-right": ["clock"],
+        
+        "include": [
+            "~/.config/waybar/default.jsonc"
+        ]
+    },
+    {
+        "layer": "top",	
+        "position": "bottom",
+        "output": "DP-2",
+        "height": 20,
+
+        "modules-left": ["sway/workspaces", "sway/mode"],
+        "modules-center": [],
+        "modules-right": ["tray"],
+        
+        "include": [
+            "~/.config/waybar/default.jsonc"
+        ]
+    },
+    {
+        "layer": "top",	
+        "position": "bottom",
+        "output": "DP-3",
+        "height": 20,
+
+        "modules-left": ["sway/workspaces", "sway/mode"],
+        "modules-center": [],
+        "modules-right": ["network", "cpu", "memory"],
+        
+        "include": [
+            "~/.config/waybar/default.jsonc"
+        ]
+    }
+]

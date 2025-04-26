@@ -1,0 +1,21 @@
+#
+# Defines environment variables.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Ensure that a non-login, non-interactive shell has a defined environment.
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
+
+export SDL_VIDEODRIVER=wayland
+export QT_QPA_PLATFORM="wayland;xcb"
+export MOZ_ENABLE_WAYLAND=1
+export GDK_BACKEND=wayland
+export GTK_THEME=Arc
+export XDG_SCREENSHOTS_DIR=~/Pictures/Screenshots
+export BROWSER=librewolf
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export ASPNETCORE_ENVIRONMENT=Development

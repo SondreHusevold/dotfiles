@@ -1,0 +1,73 @@
+{
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "disable-markup": true,
+        "format": "{index}" 
+    },
+
+    "sway/window": {
+        "format": "{}",
+        "max-length": 150
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 15
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %B %d, %Y (%R)}",
+        "tooltip-format": "<tt><span size='9pt'>{calendar}</span></tt>",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 1,
+            "weeks-pos"     : "",
+            "on-scroll"     : 1,
+            "format": {
+                    "months":     "<span color='#dfdfdf'><b>{}</b></span>",
+                    "days":       "<span color='#dfdfdf'><b>{}</b></span>",
+                    "weeks":      "<span color='#dfdfdf'><b>W{}</b></span>",
+                    "weekdays":   "<span color='#dfdfdf'><b>{}</b></span>",
+                    "today":      "<span color='#D95F69'><b><u>{}</u></b></span>"
+                }
+            },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "network": {
+        "interface": "enp4s0", 
+        "format-ethernet": " {ipaddr}/{cidr}",
+        "format-linked": "(No IP) ",
+        "format-disconnected": "",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "interval": 60,
+        "signal": 1
+    },
+
+    "cpu": {
+        "format": "{icon}   {usage}%",
+        "format-icons": [""],
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "{icon}  {used:0.2f}GB",
+        "format-icons": [""]
+    },
+
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "on-click": "helvum",
+        "max-volume": 150,
+        "scroll-step": 0.2,
+        "format-icons": ["", "", ""]
+    }
+}
