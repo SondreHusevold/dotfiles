@@ -1,0 +1,15 @@
+{
+    "security.workspace.trust.enabled": false,
+    "editor.fontFamily": "'Ligalex Mono', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "600",
+    "editor.fontSize": 13,
+    "files.autoSave": "onFocusChange",
+    "git.autofetch": true,
+    "window.titleBarStyle": "custom",
+    "window.menuBarVisibility": "visible",
+    "workbench.colorTheme": "Dracula Theme",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "editor.fontVariations": false,
+}
