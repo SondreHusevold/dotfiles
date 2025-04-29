@@ -19,11 +19,16 @@ button {
 	margin: 0px -2px 0px 0px;
 }
 
-button:hover {
+button:focus:hover, button:active, button:hover {
 	border-width: 0px;
 	background-color: #4580ad;
 	color: #e6e6e6;
 	outline-style: none;
+}
+
+/* Fixes scrim on other monitors. */
+button:focus {
+	background-color: #263749;
 }
 
 #lock {

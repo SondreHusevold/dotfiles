@@ -3,27 +3,25 @@
     "action" : "swaylock -f -c 000000;",
     "text" : "",
     "keybind" : "l"
-}
-
+},
 {
     "label" : "reboot",
     "action" : "systemctl reboot",
     "text" : "",
     "keybind" : "r"
-}
-
+},
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff",
     "text" : "",
     "keybind" : "s"
-}
+},
 {
     "label" : "suspend",
     "action" : "systemctl suspend",
     "text" : "",
     "keybind" : "u"
-}
+},
 {
     "label" : "logout",
     "action" : "loginctl terminate-user $USER",
