@@ -1,11 +1,16 @@
 ### Output configuration
+
+set $outputcenter "Acer Technologies X34 GS 0x14706CCC"
+set $outputleft   "Dell Inc. DELL P2419H D409PM2"
+set $outputright  "Dell Inc. DELL P2719H DJKJMS2"
+
 #
 # Acer X34 Predator - Center (X34 GS)
-output DP-1 bg /home/alpha/.wallpapers/spring-2025/wallhaven-2ymdo6.png fill
+output $outputcenter bg /home/alpha/.wallpapers/spring-2025/wallhaven-2ymdo6.png fill
  # Dell - Left  (P2419H)
-output DP-2 bg /home/alpha/.wallpapers/spring-2025/wallhaven-7pqvdy.png fill
+output $outputleft   bg /home/alpha/.wallpapers/spring-2025/wallhaven-7pqvdy.png fill
  # Dell - Right (P2719H) 
-output DP-3 bg /home/alpha/.wallpapers/spring-2025/wallhaven-ey9mdl.jpg fill
+output $outputright  bg /home/alpha/.wallpapers/spring-2025/wallhaven-ey9mdl.jpg fill
 
 #
 # Example configuration:
@@ -14,11 +19,19 @@ output DP-3 bg /home/alpha/.wallpapers/spring-2025/wallhaven-ey9mdl.jpg fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-output DP-1 resolution 3440x1440@180Hz position 200,1080 scale 1
-output DP-2 resolution 1920x1080@60Hz position 0,0 scale 1
-output DP-3 resolution 1920x1080@60Hz position 1920,0 scale 1
+output $outputcenter resolution 3440x1440@180Hz position 200,1080 scale 1
+output $outputleft   resolution 1920x1080@60Hz position 0,0 scale 1
+output $outputright  resolution 1920x1080@60Hz position 1920,0 scale 1
 
 # ICC Profiles
-output DP-1 color_profile icc /usr/share/color/icc/colord/X34_GS_2022-07-18_19-03_2.2_F-S_XYZLUT+MTX.icc
-output DP-2 color_profile icc /usr/share/color/icc/colord/P2419H_2022-07-18_19-39_2.2_F-S_XYZLUT+MTX.icc
-output DP-3 color_profile icc /usr/share/color/icc/colord/P2719H_2022-07-18_09_2.2_F-S_XYZLUT+MTX.icc 
+output $outputcenter color_profile icc /usr/share/color/icc/colord/X34_GS_2022-07-18_19-03_2.2_F-S_XYZLUT+MTX.icc
+output $outputleft   color_profile icc /usr/share/color/icc/colord/P2419H_2022-07-18_19-39_2.2_F-S_XYZLUT+MTX.icc
+output $outputright  color_profile icc /usr/share/color/icc/colord/P2719H_2022-07-18_09_2.2_F-S_XYZLUT+MTX.icc 
+
+
+#
+# Default Workspaces
+#
+workspace 1 output $outputcenter
+workspace 3 output $outputleft
+workspace 4 output $outputright
