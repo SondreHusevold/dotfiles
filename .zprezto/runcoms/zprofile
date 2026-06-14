@@ -52,7 +52,8 @@ path=(
   $HOME/{,s}bin(N)
   /opt/{homebrew,local}/{,s}bin(N)
   /usr/local/{,s}bin(N)
-  /home/alpha/.cargo/bin(N)
+  $HOME/.cargo/bin(N)
+  $HOME/.local/share/pnpm/bin(N)
   $path
 )
 
