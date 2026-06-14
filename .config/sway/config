@@ -34,9 +34,9 @@ set $logout wlogout -b 5 -c 2 -T 500 -B 500
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wofi -S run | xargs swaymsg exec --
+set $menu dmenu_path | wofi -S drun | xargs swaymsg exec --
 
-#seat seat0 xcursor_theme "Capitaine Cursors (Palenight) - White" 8
+seat seat0 xcursor_theme "Capitaine Cursors (Palenight) - White" 32
 
 ### Idle configuration
 #
