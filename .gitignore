@@ -1,5 +1,7 @@
 home/.config/mpv/*/*.lua
 home/.config/mpv/*/*.hook
 *.log
-
-
+*.db*
+node_modules
+.config/opencode/plugins
+.stow*
