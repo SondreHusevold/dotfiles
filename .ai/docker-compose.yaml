@@ -1,0 +1,33 @@
+services:
+  llama-server-agent:
+    image: ghcr.io/ggml-org/llama.cpp:server-vulkan
+    container_name: llama-server-agent
+    restart: no
+
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri:/dev/dri
+
+    group_add:
+      - video
+
+    # Required for good ROCm performance and stability
+    privileged: true
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    ipc: host
+    shm_size: '32G' # Increase if you use very large context/models
+
+    ports:
+      - "8081:8080"
+
+    volumes:
+      - "./models.ini:/models.ini:ro"
+      - "./models:/models:ro"
+      - "./chat-templates:/chat-templates:ro"
+
+    command: >
+      --models-preset /models.ini
+
