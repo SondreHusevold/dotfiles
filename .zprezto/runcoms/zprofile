@@ -54,6 +54,7 @@ path=(
   /usr/local/{,s}bin(N)
   $HOME/.cargo/bin(N)
   $HOME/.local/share/pnpm/bin(N)
+  $HOME/.local/{,s}bin(N)
   $path
 )
 
