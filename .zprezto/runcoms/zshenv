@@ -19,3 +19,5 @@ export XDG_SCREENSHOTS_DIR=~/Pictures/Screenshots
 export BROWSER=librewolf
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export ASPNETCORE_ENVIRONMENT=Development
+export OPENAI_API_KEY="dummy"
+export PYTHONUSERBASE=~/.pip
