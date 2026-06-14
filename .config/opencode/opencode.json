@@ -1,0 +1,87 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "plan": {
+      "color": "primary",
+      "permission": {
+        "edit": {
+          "*.md": "allow"
+        }
+      }
+    },
+    "build": {
+      "color": "secondary"
+    }
+  },
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 10000
+  },
+  "default_agent": "orchestrator",
+  "formatter": true,
+  "lsp": true,
+  "permission": {
+    "bash": {
+      "*": "ask",
+      "git *": "ask",
+      "rm *": "ask",
+
+      "rtk *": "allow",
+      "cat *": "allow",
+      "grep *": "allow",
+      "wc *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "ll *": "allow",
+      "ls *": "allow",
+      "cd *": "allow",
+      "pwd": "allow",
+      "npm *": "allow",
+      "pnpm *": "allow",
+      "dotnet *": "allow",
+      "rg *": "allow",
+
+      "sudo *": "deny",
+      "rm -rf *": "deny",
+      "dd *": "deny",
+    },
+    "lsp": "allow",
+    "skill": "allow",
+    "todowrite": "allow",
+    "question": "allow",
+    "webfetch": "allow",
+    "doom_loop": "ask",
+    "external_directory": "allow",
+  },
+  "plugin": [
+    "@tarquinen/opencode-dcp@latest"
+  ],
+  "provider": {
+    "llama-local": {
+      "models": {
+        "qwen3.6-27b-ud-q4-k-xl": {
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "name": "Qwen3.6-27B-UD-Q4_K_XL",
+          "limit": {
+            "context": 95000,
+            "output": 8192
+          }
+        }
+      },
+      "name": "Llama.cpp (7900XTX)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:8081/v1"
+      }
+    }
+  }
+}
