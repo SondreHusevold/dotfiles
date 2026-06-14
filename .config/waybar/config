@@ -2,7 +2,7 @@
     {
         "layer": "top",	
         "position": "bottom",
-        "output": "DP-1",
+        "output": "DP-2",
         "height": 25,
 
         "modules-left": ["sway/workspaces", "sway/mode"],
@@ -16,8 +16,8 @@
     {
         "layer": "top",	
         "position": "bottom",
-        "output": "DP-2",
-        "height": 20,
+        "output": "DP-1",
+        "height": 30,
 
         "modules-left": ["sway/workspaces", "sway/mode"],
         "modules-center": [],
@@ -31,7 +31,7 @@
         "layer": "top",	
         "position": "bottom",
         "output": "DP-3",
-        "height": 20,
+        "height": 30,
 
         "modules-left": ["sway/workspaces", "sway/mode"],
         "modules-center": [],

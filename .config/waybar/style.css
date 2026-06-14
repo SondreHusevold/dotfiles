@@ -1,8 +1,13 @@
 * {
-  font-family: "Akzidenz-Grotesk Pro", "Font Awesome 6 Free";
+  font-family: "Akzidenz-Grotesk Pro", "Font Awesome 7 Free";
   font-size: 12px;
   font-weight: bold;
 }
+
+
+
+window.DP-1 * { font-size: 14px; }
+window.DP-3 * { font-size: 14px; }
 
 window#waybar {
   /* border-bottom: 2px solid @surface0; */
@@ -17,7 +22,7 @@ window#waybar {
 }
 
 #workspaces button {
-  padding: 0 2px 0 2px;
+  padding: 0 6px 0 6px;
   min-width: 20px;
   margin: 0px;
   border-radius: 0;
@@ -25,6 +30,8 @@ window#waybar {
   color: #dfdfdf;
   background-color: #36536e;
 }
+
+window.DP-2 #workspaces button { padding: 0 2px 0 2px }
 
 #workspaces button:hover {
   background-color: #36536e;
