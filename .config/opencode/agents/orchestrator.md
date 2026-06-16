@@ -26,13 +26,13 @@ Create most child tasks using one of the following subagent modes:
 
 - "build": most coding
 - "plan": research tasks
+- "explore": exploring code and documentation
 
-Only use these modes for clearly specialized tasks:
+Use these modes for clearly specialized tasks:
 
-- "docs"
-- "explore"
-- "reviewer"
-- "tester"
+- "docs": writing documentation
+- "reviewer": reviewing code
+- "tester": writing and debugging tests, improving code coverage
 
 **IMPORTANT**: If a subtask returns empty, `{}`, early, or any other similar "did not fully complete" response: **_DO NOT_ SEND MORE MESSAGES INSTRUCTING THE SUBTASK TO CONTINUE, and _DO NOT_ SPAWN MORE SUBTASKS TO RESUME THE WORK!** The user is likely driving directly in that subtask. Only spawn subtasks when directly instructed to!
 

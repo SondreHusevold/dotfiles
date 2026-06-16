@@ -30,6 +30,7 @@
       "rtk *": "allow",
       "cat *": "allow",
       "grep *": "allow",
+      "echo *": "allow",
       "wc *": "allow",
       "head *": "allow",
       "tail *": "allow",
